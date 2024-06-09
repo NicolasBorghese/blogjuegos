@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('imgUsuario')->nullable();
             $table->date('fechaDeshabilitado')->nullable();
             $table->timestamps();
+            $table->rememberToken();
+
         });
     }
 
