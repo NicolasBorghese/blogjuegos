@@ -15,7 +15,12 @@
 <!-- nav -->
 @include('layouts.partials.header')
 
+
+<div class="container mx-auto p-10 bg-gray-400">
+
 @yield('content')
+
+</div>
 
 <!-- footer -->
 @include('layouts.partials.footer')
