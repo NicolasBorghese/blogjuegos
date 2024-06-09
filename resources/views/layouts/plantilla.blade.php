@@ -16,7 +16,7 @@
 @include('layouts.partials.header')
 
 
-<div class="container mx-auto p-10 bg-gray-400">
+<div class="container mx-auto p-10 bg-slate-400">
 
 @yield('content')
 

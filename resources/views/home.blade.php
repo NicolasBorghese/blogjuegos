@@ -5,7 +5,7 @@
 @section('content')
 
 <div>
-    <h1 class="text-3xl font-bold mb-6">Últimas Noticias</h1>
+    <h1 class="text-3xl font-bold mb-6 text-slate-900">ÚLTIMAS NOTICIAS</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         @foreach($noticias as $noticia)
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105">
@@ -18,7 +18,7 @@
         @endforeach
     </div>
 
-    <h1 class="text-3xl font-bold mt-12 mb-6">Últimas Reviews</h1>
+    <h1 class="text-3xl font-bold mt-12 mb-6 text-slate-900">ÚLTIMAS REVIEWS</h1>
     <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
         @foreach($reviews as $review)
             <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 pt-3">

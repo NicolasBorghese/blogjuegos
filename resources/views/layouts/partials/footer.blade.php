@@ -1,6 +1,6 @@
-<footer class="bg-gradient-to-r from-red-950 to-blue-950 text-white flex flex-col justify-center items-center p-4 h-auto">
+<footer class="bg-slate-900 text-white flex flex-col justify-center items-center p-4 h-auto">
     <div class="text-center mb-6">
-        <p class="mb-4 font-bold">&copy; 2024 Grupo A PWA</p>
+        <p class="mb-4 font-bold">&copy; 2024 PWA Grupo A</p>
         <ul>
             <li>
                 <p>Borghese Nicolás FAI-997</p>
