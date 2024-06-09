@@ -22,9 +22,9 @@ class Post extends Model
         'fechaDeshabilitado' => 'datetime',
     ];
 
-    public function user()
+    public function usuario()
     {
-        return $this->belongsTo(User::class, 'nombreCuenta', 'nombreCuenta');
+        return $this->belongsTo(Usuario::class, 'nombreCuenta', 'nombreCuenta');
     }
 
     public function noticia()
