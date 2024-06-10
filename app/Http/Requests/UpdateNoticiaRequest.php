@@ -22,12 +22,7 @@ class UpdateNoticiaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'idPost' => 'required',
-            'tituloNoticia' => 'required',
-            'resumenNoticia' => 'required',
-            'contenidoNoticia' => 'required',
-            'imgCard'=> 'required',
-            'imgPortada'=> 'required'
+            //
         ];
     }
 }

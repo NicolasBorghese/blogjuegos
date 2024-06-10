@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+       //Defino la tabla a la que se en la base de datos
+       protected $table = "reviews";
 
-    //Defino la tabla a la que se relaciona en la base de datos
-    protected $table = "review";
-
-    protected $primaryKey = 'idReview';
+       protected $primaryKey = 'idReview';
 
     protected $fillable = [
         'idPost', 'nombreJuego', 'resumenReview', 'contenidoReview', 'puntajeJuego', 'generoJuego', 'imgCard', 'imgPortada',
@@ -22,4 +21,5 @@ class Review extends Model
     {
         return $this->belongsTo(Post::class, 'idPost', 'idPost');
     }
+
 }

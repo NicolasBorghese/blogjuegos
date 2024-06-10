@@ -6,6 +6,7 @@ use App\Http\Requests\StoreNoticiaRequest;
 use App\Http\Requests\UpdateNoticiaRequest;
 use App\Models\Noticia;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
@@ -20,8 +21,11 @@ class NoticiaController extends Controller
     public function show($id){
 
         $noticia = Noticia::findOrFail($id);
+        $post = Post::findOrFail($noticia->idPost);
+        $user = User::findOrFail($post->idUser);
+      
         
-        return view('noticias.show',compact('noticia'));
+        return view('noticias.show',compact('noticia','user'));
     }
 
     public function create(){
@@ -30,9 +34,22 @@ class NoticiaController extends Controller
 
     public function store(StoreNoticiaRequest $request){
 
+        //return $request->tituloNoticia;
         
-      
-         Noticia::create($request->all());
+        //$user = User::findOrFail($request->name);
+        $post = new Post();
+        $post->idUser = $request->idUser;
+        $post->categoriaPost = $request ->categoriaPost;
+        $post->save();
+
+        $noticia = new Noticia();
+        $noticia->idPost = $post->idPost;
+        $noticia->tituloNoticia = $request->tituloNoticia;
+        $noticia->resumenNoticia = $request->resumenNoticia;
+        $noticia->contenidoNoticia = $request->contenidoNoticia;
+
+        $noticia->save();
+        //mas adelante o de las imagenes
          return redirect()->route('noticias.index');
          
          
@@ -40,21 +57,26 @@ class NoticiaController extends Controller
 
      public function edit($id){
         $noticia = Noticia::findOrFail($id);
+        $post = Post::findOrFail($noticia->idPost);
 
-        return view('noticias.edit',compact('noticia'));
+        return view('noticias.edit',compact('noticia','post'));
     }
 
-    public function getUpdate(UpdateNoticiaRequest $request, $id){
+    public function update(UpdateNoticiaRequest $request, $id){
 
-        //ver el video 20 para las validaciones de una url unica(slug)
-        //ver el video 21 del curso para modificar el mensaje de error y los agributos
+
        
         $noticia = Noticia::findOrFail($id);
-        $noticia->update($request->all());
+        $noticia->tituloNoticia = $request->tituloNoticia;
+        $noticia->resumenNoticia = $request->resumenNoticia;
+        $noticia->contenidoNoticia = $request->contenidoNoticia;
+        $noticia->update();
+        $post = Post::findOrFail($noticia->idPost);
+        $post->categoriaPost = $request ->categoriaPost;
+        $post->update();
     
 
         return redirect()->route('noticias.update', $noticia->idNoticia);
         
     }
-
 }

@@ -1,18 +1,15 @@
-@extends('layouts.plantilla')
-
-@section('title', 'Home')
-
-@section('content')
-<h1>Lista Noticias </h1>
+<h1>Listas Noticias</h1>
 <a href="{{route('home')}}">Volver a Home</a>
 <br>
 <br>
+@auth
 <a href="{{route('noticias.create')}}">Crear Noticia</a>
+@endauth
 
 <br>
 <br>
 
-<ul>
+ <ul>
     @foreach ($noticias as $noticia)
     
 
@@ -24,6 +21,4 @@
     
     @endforeach
 
-</ul>
-
-@endsection()
+</ul> 
